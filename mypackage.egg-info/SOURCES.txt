@@ -1,0 +1,11 @@
+setup.py
+ACalculatingFunction/ACalculatingFunction.py
+ACalculatingFunction/__init__.py
+ACalculatingFunction/test.py
+BDrinks/__init__.py
+BDrinks/bDrinks.py
+BDrinks/test.py
+mypackage.egg-info/PKG-INFO
+mypackage.egg-info/SOURCES.txt
+mypackage.egg-info/dependency_links.txt
+mypackage.egg-info/top_level.txt
