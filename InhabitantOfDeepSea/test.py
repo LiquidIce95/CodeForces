@@ -66,6 +66,54 @@ class TestSuite(TestCase):
     actual = computeSurv([numShips,numAttacks],shipsLife)
     expected = 1
     self.assertEqual(expected,actual)
+
+  def testCodeforces1(self):
+    numShips = 4
+    numAttacks = 5
+    shipsLife = [1,2,4,3]
+    actual = computeSunk([numShips,numAttacks],shipsLife)
+    expected = 2
+    self.assertEqual(expected,actual)
+
+  def testCodeforces2(self):
+    numShips = 4
+    numAttacks = 6
+    shipsLife = [1,2,4,3]
+    actual = computeSunk([numShips,numAttacks],shipsLife)
+    expected = 3
+    self.assertEqual(expected,actual)
+
+  def testCodeforces3(self):
+    numShips = 5
+    numAttacks = 20
+    shipsLife = [2,7,1,8,2]
+    actual = computeSunk([numShips,numAttacks],shipsLife)
+    expected = 5
+    self.assertEqual(expected,actual)
+
+  def testCodeforces4(self):
+    numShips = 2
+    numAttacks = 2
+    shipsLife = [3,2]
+    actual = computeSunk([numShips,numAttacks],shipsLife)
+    expected = 0
+    self.assertEqual(expected,actual)
+
+  def testCodeforces5(self):
+    numShips = 2
+    numAttacks = 15
+    shipsLife = [1,5]
+    actual = computeSunk([numShips,numAttacks],shipsLife)
+    expected = 2
+    self.assertEqual(expected,actual)
+  
+  def testCodeforces6(self):
+    numShips = 2
+    numAttacks = 7
+    shipsLife = [5,2]
+    actual = computeSunk([numShips,numAttacks],shipsLife)
+    expected = 2
+    self.assertEqual(expected,actual)
   
 
 

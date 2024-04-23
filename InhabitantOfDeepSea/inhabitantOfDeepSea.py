@@ -100,6 +100,10 @@ def sixthCase(l:int,r:int,side:int,firstShip,lastShip,numAttack):
     r-=1
     return numAttack,firstShip,r
 
+def computeSunk(descr:list,a:list):
+    surv = computeSurv(descr,a)
+    return descr[0]-surv
+
 
 if __name__ == "__main__":
   numberOftests = int(sys.stdin.readline())
@@ -107,7 +111,7 @@ if __name__ == "__main__":
   for _ in range(numberOftests):
     testDescr = list(map(int,sys.stdin.readline().split()))
     array = list(map(int,sys.stdin.readline().split()))
-    output = computeSurv(testDescr,array)
-    sys.stdout.writelines(str(output))
+    output = computeSunk(testDescr,array)
+    sys.stdout.writelines(str(output)+"\n")
 
 
