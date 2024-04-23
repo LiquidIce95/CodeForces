@@ -2,7 +2,7 @@
   "python.testing.unittestArgs": [
     "-v",
     "-s",
-    "./OlesiaAndRodeon",
+    "./InhabitantOfDeepSea",
     "-p",
     "*test*.py"
   ],

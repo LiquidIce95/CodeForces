@@ -12,9 +12,21 @@ def computeSurv(descr:list,a:list)->int:
     """which side is being attacked"""
     side = 0
     l=0
-    r=-1
+    r= numShips-1
+
+    if(l == r and numAttack < a[l]):
+        return 1
+    elif(l == r and numAttack >= a[l]):
+        return 0
 
     while(numShips >0 and numAttack > 0):
+
+        if(l == r and numAttack < a[l]):
+            return 1
+        elif(l == r and numAttack >= a[l]):
+            return 0
+
+
         firstShip = a[l]
         lastShip = a[r]
 
@@ -34,13 +46,13 @@ def computeSurv(descr:list,a:list)->int:
         side = 1 - side 
         numShips = (numShips+r)-l + 1
 
-    return (numShips+r)-l + 1
+    return r-l+1
   
 
 
 def firstCase(l:int,r:int,side:int,firstShip,lastShip,numAttack):
     """firstShip > lastShip and side == 0"""
-    if numAttack < lastShip*2: k=0; return None;
+    if numAttack < lastShip*2: numAttack=0; return numAttack,firstShip,r;
     numAttack -= lastShip*2
     firstShip -= lastShip
     r -= 1
@@ -48,7 +60,7 @@ def firstCase(l:int,r:int,side:int,firstShip,lastShip,numAttack):
 
 def secondCase(l:int,r:int,side:int,firstShip,lastShip,numAttack):
     """firstShip > lastShip and side == 1"""
-    if numAttack < lastShip*2-1: numAttack=0; return None;
+    if numAttack < lastShip*2-1: numAttack=0; return numAttack,firstShip,r;
     numAttack-= lastShip*2-1
     firstShip -= lastShip-1
     r -= 1
@@ -57,7 +69,7 @@ def secondCase(l:int,r:int,side:int,firstShip,lastShip,numAttack):
 
 def thirdCase(l:int,r:int,side:int,firstShip,lastShip,numAttack):
     """firstShip < lastShip and side == 0"""
-    if numAttack < firstShip*2-1: numAttack=0;return None;
+    if numAttack < firstShip*2-1: numAttack=0;return numAttack,lastShip,l;
     numAttack-= firstShip*2-1
     lastShip -= firstShip-1
     l += 1
@@ -65,7 +77,7 @@ def thirdCase(l:int,r:int,side:int,firstShip,lastShip,numAttack):
 
 def fourthCase(l:int,r:int,side:int,firstShip,lastShip,numAttack):
     """firstShip < lastShip and side == 1"""
-    if numAttack < firstShip*2: k=0;return None;
+    if numAttack < firstShip*2: numAttack=0;return numAttack,lastShip,l;
     numAttack -= firstShip*2
     lastShip -= firstShip
     l += 1
@@ -73,7 +85,7 @@ def fourthCase(l:int,r:int,side:int,firstShip,lastShip,numAttack):
 
 def fifthCase(l:int,r:int,side:int,firstShip,lastShip,numAttack):
     """firstShip == lastShip and side == 0"""
-    if numAttack < firstShip*2-1: k=0;return None;
+    if numAttack < firstShip*2-1: k=0;return numAttack,lastShip,l;
     numAttack -= firstShip*2-1
     lastShip -= firstShip-1
     l+=1
@@ -82,7 +94,7 @@ def fifthCase(l:int,r:int,side:int,firstShip,lastShip,numAttack):
 
 def sixthCase(l:int,r:int,side:int,firstShip,lastShip,numAttack):
     """firstShip == lastShip and side == 1"""
-    if numAttack < lastShip*2-1: k=0; return None;
+    if numAttack < lastShip*2-1: numAttack=0; return numAttack,firstShip,r;
     numAttack-= lastShip*2-1
     firstShip -= lastShip-1
     r-=1
